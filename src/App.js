@@ -1,8 +1,9 @@
-import InicioContexto from "./pages/InicioContexto"
+// import InicioContexto from "./pages/InicioContexto"
+import InicioTema from "./pages/InicioTema"
 
 const App = () => {
     return (
-        <InicioContexto />
+        <InicioTema />
     )
 }
 
