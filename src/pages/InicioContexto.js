@@ -1,10 +1,10 @@
 import { useContext } from "react"
-import { UsuarioContext } from "../common/contexts/UsuarioContext"
+import { UsuarioContext, UsuarioContextProvider } from "../common/contexts/UsuarioContext"
 
 const UserData = () => {
-    const nome = useContext(UsuarioContext)
+    const {usuario} = useContext(UsuarioContext)
     return (
-        <p>{nome}</p>
+        <p>{usuario}</p>
     )
 }
 
@@ -17,11 +17,19 @@ const UserPannel = () => {
     )
 }
 
+const InputUser = () => {
+    const {usuario, setUsuario} = useContext(UsuarioContext)
+    return (
+        <input value={usuario} onChange={(e) => setUsuario(e.target.value)} />
+    )
+}
+
 const InicioContexto = () => {
     return (
-        <UsuarioContext.Provider value="Marco">
+        <UsuarioContextProvider>
+            <InputUser />
             <UserPannel />
-        </UsuarioContext.Provider>
+        </UsuarioContextProvider>
     )
 }
 
